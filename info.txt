@@ -1,0 +1,5 @@
+These scripts were perhaps some of my best script names. I had a wrapper function that set parameters called "rapperb". It called a function called "runDMC". So clearly, there had to be a script called, "myAdidas". I'll award stars if you choose something equally good.
+
+So "myAdidas" is the script that create a ".pbs" file with the matlab executables. It then creates a qsub command and runs it, grabbing the system return value which is then fed to "waitforexit", which will monitor the queue until the job has completed. 
+
+From there, you can build up more complicated things. All of the stuff I have is pretty specific to what I was doing, i.e. running through a bunch of monte carlo trials and changing certain parameters.
