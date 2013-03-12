@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{fullpage}
+
+\title{Some Differential Equations}
+\author{David Strauss}
+
+\begin{document}
+\maketitle
+We are primarily concerned with solving problems that look largely like this:
+\begin{equation}
+\begin{array}{r l}
+\dot{T}_1 & = \frac{k}{N_1} + \frac{\dot{N}}{N}\\
+\dot{T}_2 & = \frac{k}{N_2}
+\end{array}
+\end{equation}
+The first step will be to do the substitution to reduce this to a standard ODE form: $x' = f(x)$:
+\begin{equation}
+\begin{array}{r l}
+\dot{T}_1 &= \frac{k}{N_1} + T_1^{3/2}N_2\\
+\dot{N}_1 &= N_1N_2T_1^{3/2}\end{array}
+\end{equation}
+
+By substituting the rate of change equation for $N$ into the rate equations for $T$ we have a standard ODE. Following that, any of the standard methods can be used:
+\begin{enumerate}
+\item Explicit Euler
+\item Implicit Euler
+\item Diagonally Implicit Runge Kutta (DIRK)
+\item Implicit Runge Kutta 
+\item Multi step
+\end{enumerate}
+
+I don't have any intuition as to which of these methods is going to give the \emph{best} performance, but I will do some work to sketch out how these methods work, and a few extensions.
+
+\section{1-Step Euler}
+These are well known. You just substitute $y' = \frac{y^{k+1} - y^k}{\Delta t}$ and let $f(y)$ either be given as $f(y^k)$ or $f(y^{k+1})$ for explicit and implicit euler methods respectively. Explicit Euler methods 
+
+
+\section{Newton Solvers}
+With many of the implicit solvers, you often end up needing to find the zeros of a nonlinear equation. Sometimes it is a simple linear system, $Ax-b=0$. You should know how to solve that with all sorts of methods, iterative and direct.
+
+However, even in this trivial example, we have a case where a nonlinear equation pops up. To solve it, I recommend a Newton Method. These can be efficient; Newton Methods give quadratic convergence. If the Jacobian isn't too difficult to evaluate and invert, then this is certainly the method of choice. If it is difficult to invert, then some form of Newton-Krylov method 
+
+\end{document}
