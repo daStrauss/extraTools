@@ -1,0 +1,10 @@
+\begin{thebibliography}{Kno04}
+
+\bibitem[Kno04]{Knoll2004}
+D~Knoll.
+\newblock {Jacobian-free Newton–Krylov methods: a survey of approaches and
+  applications}.
+\newblock {\em Journal of Computational Physics}, 193(2):357--397, January
+  2004.
+
+\end{thebibliography}

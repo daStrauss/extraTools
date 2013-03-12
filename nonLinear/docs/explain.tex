@@ -9,15 +9,24 @@
 We are primarily concerned with solving problems that look largely like this:
 \begin{equation}
 \begin{array}{r l}
-\dot{T}_1 & = \frac{k}{N_1} + \frac{\dot{N}}{N}\\
-\dot{T}_2 & = \frac{k}{N_2}
+\dot{T}_1 & = \frac{k}{N_1} + \frac{\dot{N}}{N} - (T_1 - T_2)\\
+\dot{T}_2 & = \frac{k}{N_2} + (T_1 - T_2)\\
+\dot{N}_1 &= T_1^{3/2}\exp(\frac{c}{T_1}) N_1 N_2 +
+T^{3/2}_1N_3N_1^2\\
+\dot{N}_2 &= \dot{N}_1\\
+N_2 + N_3 &= C
 \end{array}
 \end{equation}
 The first step will be to do the substitution to reduce this to a standard ODE form: $x' = f(x)$:
 \begin{equation}
 \begin{array}{r l}
-\dot{T}_1 &= \frac{k}{N_1} + T_1^{3/2}N_2\\
-\dot{N}_1 &= N_1N_2T_1^{3/2}\end{array}
+\dot{T}_1 &= \frac{k}{N_1} + T_1^{3/2}\exp(\frac{c}{T_1})N_2 +T_1^{3/2}(C-N_2)N_1\\
+\dot{T}_2 &= \frac{k}{N_2} + (T_1-T_2) \\
+\dot{N}_1 &=  T_1^{3/2}\exp(\frac{c}{T_1}) N_1 N_2 +
+T^{3/2}_1(C-N_2)N_1^2\\
+\dot{N}_2 &=  T_1^{3/2}\exp(\frac{c}{T_1}) N_1 N_2 +
+T^{3/2}_1(C-N_2)N_1^2\\
+\end{array}
 \end{equation}
 
 By substituting the rate of change equation for $N$ into the rate equations for $T$ we have a standard ODE. Following that, any of the standard methods can be used:
@@ -38,6 +47,16 @@ These are well known. You just substitute $y' = \frac{y^{k+1} - y^k}{\Delta t}$ 
 \section{Newton Solvers}
 With many of the implicit solvers, you often end up needing to find the zeros of a nonlinear equation. Sometimes it is a simple linear system, $Ax-b=0$. You should know how to solve that with all sorts of methods, iterative and direct.
 
-However, even in this trivial example, we have a case where a nonlinear equation pops up. To solve it, I recommend a Newton Method. These can be efficient; Newton Methods give quadratic convergence. If the Jacobian isn't too difficult to evaluate and invert, then this is certainly the method of choice. If it is difficult to invert, then some form of Newton-Krylov method 
+However, even in this trivial example, we have a case where a
+nonlinear equation pops up. To solve it, use a newton method. These
+can be efficient; Newton Methods give quadratic convergence. If the
+Jacobian isn't too difficult to evaluate and invert, then this is
+certainly the method of choice. If it is difficult to invert, then
+maybe you need to use a Newton-Krylov method, or a Jacobian-Free
+Newton Krylov method \cite{Knoll2004}
+
+\bibliographystyle{alpha}
+\bibliography{/Users/dstrauss/Documents/bibs/stiff_eqns}
+
 
 \end{document}
